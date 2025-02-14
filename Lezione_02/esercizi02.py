@@ -48,3 +48,15 @@ cars_list: list = ["audi", "bmw", "ferrari"]
 print (f" {cars_list [0]} è la mia macchina preferita!")
 print (f" {cars_list [1]} è una macchina bella!")
 print (f" {cars_list [2]} è la mia macchina dei sogni!")
+
+#3.4
+
+list_1:list =["Marilyn Monroe", "Adele", "Mina"]
+
+print (f" Ciao, {list_1 [0]} vuoi venire a cena con me?")
+print (f" Ciao, {list_1 [1]} vuoi venire a cena con me?")
+print (f" Ciao, {list_1 [2]} vuoi venire a cena con me?")
+
+#3.5
+
+list_1:list =["Marilyn Monroe", "Adele", "Mina"]
