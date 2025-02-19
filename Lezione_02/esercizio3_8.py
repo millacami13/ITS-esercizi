@@ -1,6 +1,6 @@
 #3.8
 
-list_vacation:list = ["Giappone", "Thailandia", "Filippine", "Cambogia", "Islanda"]
+list_vacation:list [str] = ["Giappone", "Thailandia", "Filippine", "Cambogia", "Islanda"]
 
 print (list_vacation)
 print (f" La lista in ordine alfabetico è: {sorted (list_vacation)}")

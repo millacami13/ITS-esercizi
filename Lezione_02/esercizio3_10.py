@@ -1,6 +1,6 @@
 #3.10
 
-list_languages:list = ["Francese", "Spagnolo", "Tedesco", "Cinese"]
+list_languages:list [str] = ["Francese", "Spagnolo", "Tedesco", "Cinese"]
 
 list_languages.insert (2, "Portoghese")
 list_languages.append ("Polacco")

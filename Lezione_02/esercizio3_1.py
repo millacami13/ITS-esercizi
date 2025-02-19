@@ -1,6 +1,6 @@
 #3.1
 
-list_1: list = ["camilla", "thomas", "silvia"]
+list_1: list [str] = ["camilla", "thomas", "silvia"]
 
 print (list_1 [0])
 print (list_1 [1])

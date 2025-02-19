@@ -1,9 +1,10 @@
 #3.6
 
-list_1:list =["Marilyn Monroe", "Adele", "Mina"]
+list_1:list [str] =["Marilyn Monroe", "Adele", "Mina"]
 
+print ("Ragazzi ho trovato un tavolo più grande!")
 list_1.insert (1, "Madonna")
-list_1.insert (2, "Lady Gaga")
+list_1.insert (len(list_1)//2, "Lady Gaga")
 list_1.append ("Drake")
 
 print (f" Ciao, {list_1 [0]} vuoi venire a cena con me?")
