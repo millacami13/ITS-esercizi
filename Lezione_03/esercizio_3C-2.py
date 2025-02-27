@@ -1,4 +1,4 @@
-#Esercizio 3C-2.
+#Esercizio 3C-2
 
 voto:int = int(input("Inserisci il voto: "))
 match voto:
