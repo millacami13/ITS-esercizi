@@ -1,6 +1,6 @@
 #esercizio 6.3
 
-# from typing import Any
+from typing import Any
 
 glossary: dict[str,Any] = {"for": "Permette di ripetere un operazione n numero di volte",
                             "while": "Permette di ripetere una condizione finchè vera",
