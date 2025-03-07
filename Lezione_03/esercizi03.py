@@ -77,6 +77,41 @@ while True:
 n_tutor:int = 10
 attesa:int = 0
 
-while n_tutor == 0 and attesa > 50:
-    studente;int = int (input(" Inserisci numero studente: "))
+# 5 7 8 9 14 15 18 19
+
+
+#es5.2
+
+n:int = int (input(f" Inserisci numero: "))
+
+if n % 1 == 0 and n > 0:
+    somma:int = 0
+    i = 0
+    while i <= n:                   #for i in tange 81, n+1) rimuovendo i +=1
+        somma = (somma + (i *i))
+        i += 1
+    print (f" La somma è {somma}")
+else:
+    print (" Errore, n deve essere positivo")    
+
+#es7.2
+
+# cont: int = 0 
+# somma:int = 0
+
+# while True:
+#     scelta: str = input (f" Inserire scelta: ")
+#     if scelta == "si":
+#         voto:int = int (input(f" Inserire voto: "))
+#         if voto >= 0:
+#             somma += voto
+#             cont += 1
+#         else:
+#             print ("errore")
+
+#es8.2
+
+
+
+
 

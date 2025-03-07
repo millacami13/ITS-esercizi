@@ -1,5 +1,3 @@
-print ("Hello world")
-
 #es1
 
 import math
