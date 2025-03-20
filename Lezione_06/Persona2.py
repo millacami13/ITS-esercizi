@@ -28,7 +28,7 @@ class Persona:
     def getLastname(self) -> str:
         return self.lastname
     
-    def getAge(self) -> str:
+    def getAge(self) -> int:
         return self.age
 
 
