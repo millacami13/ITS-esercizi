@@ -116,6 +116,9 @@ class FloatDenaro(float):
 
         if self.valuta() != other.valuta():
             raise ValueError (f"Non posso sommare importi di valute diverse : '{self.valuta} e {other.valuta}")
+        
+    def __sub__(self, other: Self) -> Self:
+        return self + FloatDenaro(-other, other.valuta())   
 
     
             
