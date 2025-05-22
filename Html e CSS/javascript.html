@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="risultato"> </div>
+    <div id="saluto" > </div>
+
+    <script>
+        // dichiarazione variabile con let attraverso prompt
+        let numero = prompt("inserisci il primo numero"); 
+        // trasformo valore da stringa a numero 
+        numero = parseInt(numero)
+        let numero2 = 30;
+        // per visualizzare numero in terminale
+        console.log(numero);
+
+        // richiamo elemento tramite id 
+        document.getElementById("risultato").innerHTML = "la somma di " + numero + " + " + numero2 +  " è "  +  (numero + numero2);
+
+        let nome = "Camilla";
+        document.getElementById("saluto").innerHTML = "Ciao " + nome;
+
+    </script>
+</body>
+</html>
