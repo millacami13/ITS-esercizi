@@ -134,4 +134,44 @@ class CodiceFiscaleBrutto:
             self.cf = cff
         else:
             raise ValueError (f"La stringa '{cff}' non è un codice fiscale italiano valido")
+        
+class Indirizzo:
+
+    _via: str
+    _civico : int
+
+    def _init_ (self, via: str, civico: int) -> None:
+
+        self._via = via
+        self._civico = civico
+
+    def via(self) -> str:
+        return self._via
+        
+    def civico(self) -> int:
+        return self._civico
+        
+    def _hash_ (self) -> int:
+        return hash(self._via, self._civico)
+        
+    def _eq_ (self, other:Any) -> bool:
+            
+        if other is None or \
+                not isinstance (other, type(self)) or \
+                hash(self) != hash(other):
+            return False
+        return self._via == other._via and self._civico == other._civico
+
+
+class Telefono (str):
+
+    def _new_(cls, telefono: str):
+
+        if re.fullmatch(r"^\+?[1-9][0-9]{7,14}$", telefono):
+
+            return super()._new_(cls, telefono)
+        
+        else:
+
+            raise Exception("numero di telefono inserito non correttamente")
 
