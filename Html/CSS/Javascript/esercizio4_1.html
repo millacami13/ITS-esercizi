@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esercizio 3.4</title>
+</head>
+<body>
+    <div id="tabellina" ></div>
+    <div id="tabellina1" ></div>
+    <script>
+        // ciclo for
+        let numero = prompt("Inserisci numero: ")
+        numero = parseInt(numero)
+        let tab = ""
+
+        for (let num = 1; num <= 10; num++) {
+            tab += numero + " x " + num + " = " + (numero * num) + "<br>";
+            document.getElementById("tabellina").innerHTML = tab + "<br>";
+
+        }
+
+        // ciclo while
+        let numero1 = prompt("Inserisci numero: ")
+        numero1 = parseInt(numero1)
+        let tab1 = ""
+        let num1 = 1
+        let massimo = 10
+
+        while (num1 <= massimo) {
+            tab1 += numero1 + " x " + num1 + " = " + (numero1 * num1) + "<br>";
+            document.getElementById("tabellina1").innerHTML = tab1;
+            num1 ++;
+        }
+
+    </script>
+    
+</body>
+</html>
