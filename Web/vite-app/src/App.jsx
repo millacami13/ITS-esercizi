@@ -6,6 +6,7 @@ import UserAlbumsFullStack from './Esercizi/UserAlbumsFullStack'
 import Saluto from './Esercizi/Esercizio_1/Saluto'
 import CardUtente from './Esercizi/Esercizio_2/CardUtente'
 import MenuRistorante from './Esercizi/Esercizio_3/MenuRistorante'
+import ToDoApp from './todolist/ToDoApp'
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <>
-      <MenuRistorante></MenuRistorante>
+      <ToDoApp></ToDoApp>
     </>
   )
 }
