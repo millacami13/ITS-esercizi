@@ -13,7 +13,7 @@ def get_all():
     return jsonify(dati), 200
 
 @app.route('/nazioni', methods=['GET'])
-def get_nazioni():
+def get_nazioni():  
     dati = load_data_from_db()
     nazioni: dict[str, dict[str, str]] = dati['Nazione']
     return jsonify(nazioni), 200
