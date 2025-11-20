@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #a{
+            padding: 30px;
+            background-color: blueviolet;
+            border-radius: 40px;
+            border: 30px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div id="a">
+           <!-- mandare a video i dati del post dell'endpoint-->
+
+    </div>
+    <script>
+        const url="https://jsonplaceholder.typicode.com/posts/1";
+        const div = document.querySelector("div");
+        fetch(url).then(resp=>resp.json()).then(post=>{
+            //codice consumatore ed è sempre dentro una then, consuma il risultato di una promise
+            div.innerHTML= `<h2>${post.title}</h2><p>${post.body}</p>`
+            fetch(urlUsers+post.userId).then(resp=>resp.json())
+            .then(user=>{
+                div.innerHTML += "<small>" + user.name + "</small>";
+            });
+        });
+    </script>
+</body>
+</html>
