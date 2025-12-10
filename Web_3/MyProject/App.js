@@ -1,85 +1,113 @@
-import { StatusBar } from 'expo-status-bar';
-import { use, useState } from 'react';
-import { Button, FlatList, StyleSheet, Text, TextInput, View, Modal} from 'react-native';
+import { useState } from 'react';
+import { Button, FlatList, StyleSheet, Text, TextInput, View, Modal, Image, ScrollView } from 'react-native';
+import TaskItem from './components/TaskItem';
+import TaskInput from './components/TaskInput';
 
 export default function App() {
-  const [messaggio, setMessaggio] = useState ("Ciao")
-  const [visible, setVisible] = useState (false)
-  const [nome, setNome] = useState ("")
-  const [openModal, setOpenModal] = useState (false)
-  const [contatore, setContatore] = useState (0)
+  // const [task, setTask] = useState("");
+  const [tasks, setTasks] = useState([]);
+  // function taskInputHandler(enteredTask) {
+  //   console.log(enteredTask)
+  //   setTask(enteredTask)
+  // }
 
-  const dati = [
-    {id : "1", nome : "Camilla"},
-    {id : "2", nome : "Matteo"},
-    {id : "3", nome: "Gigi"}
-  ]
+  function deleteTask(id) {
+    setTasks(current => {
+      return current.filter((t) => t.id !== id)
+    });
+  }
+  function addTaskHandler(task) {
+    setTasks(current => [...current, { task, id: new Date() }]);
+  }
+
+  // function addTaskHandler() {
+  //   if (task !== "") {
+
+  //     setTasks(current => [...current,{task,id:new Date()}]);
+  //     setTask("");
+  //   }
+  // }
+
   return (
-    <View style={styles.container}>
-      <Text>{nome}</Text>
-      {visible && <Text> {messaggio}</Text>}
-      <TextInput placeholder = "Inserisci testo" onChangeText = {setNome} style = {styles.inputText}></TextInput>
-      <Button 
-        title = "Cambia testo"  
-        onPress={()=>setMessaggio ("Ho premuto il pulsante")}
-      />
-      <Button 
-        title = {visible ? "Nascondi" : "Visualizza"}  
-        onPress={()=>setVisible (!visible)}
-      />
-      <Text>{contatore}</Text>
-      <Button
-       title = "Incrementa" 
-       onPress={() => setContatore (current => current +1)}>
-      </Button>
-      <Button
-       title = "Decreementa" 
-       onPress={() => setContatore(current => current -1)}>
-      qw</Button>
-
-      <View style = {styles.containerList}>
-        <FlatList
-        data = {dati}
-        renderItem = {(dato) => <Text> {dato.item.nome}</Text>}
-        keyExtractor = {(item) =>item.id}
+    <View style={styles.appContainer}>
+      <TaskInput onAddTask={addTaskHandler}></TaskInput>
+      {/* <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder='Inserisci task'
+          onChangeText={taskInputHandler}
+          value={task}
         />
-        </View>
-        <View style = {styles.containerList}>
-          <Text>Buonasera</Text>
-          <Button
-           title = "Apri" 
-           onPress={() => setOpenModal(true)}></Button>
-           <Modal visible = {openModal} animationType = "slide">
-            <View style = {styles.container}>
-              <Text>Adoro</Text>
-              <Button
-               title = "CHiudi" 
-               onPress = {() => setOpenModal(false)}></Button>
-            </View>
-           </Modal>
+        <Button
+          title='Aggiungi'
+          onPress={addTaskHandler}
+          disabled={task === ""}
+        ></Button>
+      </View> */}
+      <View style={styles.goalContainer}>
+        <FlatList
+          alwaysBounceVertical={false}
+          data={tasks}
+          renderItem={(itemData) => {
+            return (
+              <TaskItem onDelete={deleteTask} taskItem={itemData.item}></TaskItem>
+              // <View style={styles.taskText}>
+              //   <Text style={styles.taskItem}>{itemData.item}</Text>
+              // </View>
+            );
+          }}
+          keyExtractor={(item) => item.id}
+        />
+        {/* <ScrollView>
+          {
+            tasks.map((t, index) => (
+              <View key={index} style={styles.taskItem}>
+                <Text key={index} style={styles.taskText}>{t}</Text>
+              </View>
+            ))}
+        </ScrollView> */}
       </View>
-
-    </View>
+      {/* <View style={{ flexDirection: 'row', height:200 }}>
+        <View style={{ backgroundColor: 'red', flex: 1 }} />
+        <View style={{ backgroundColor: 'white', flex: 1}} />
+        <View style={{ backgroundColor: 'green', flex: 1 }} />
+      </View> */}
+      {/* <View>
+         <Image
+        style={styles.logo}
+        source={{
+          uri: 'https://it.wikipedia.org/wiki/File:SSC_Napoli_2024_%28azure%29.svg',
+        }}
+      />
+      </View> */}
+    </View >
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  appContainer: {
     flex: 1,
-    backgroundColor: "skyblue",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal : 46,
-    padding : 50
+    backgroundColor: 'skyblue',
+    paddingTop: 50,
+    paddingHorizontal: 16
+
   },
-  containerList : {
-    flex : 3,
-    backgroundColor : "skyblue",
-    allignItems : "center",
-    justifyContent : "center",
+  textInput: {
+    borderWidth: 1,
+    borderColor: '#cccccc',
+    width: '70%',
+    padding: 8
   },
-  inputText:{
-    borderWidth : 1,
-    padding :10
-  }
+  inputContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 24,
+    borderBottomWidth: 1,
+    borderColor: '#cccccc'
+  },
+  goalContainer: {
+    flex: 4
+  },
 });
