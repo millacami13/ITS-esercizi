@@ -1,0 +1,27 @@
+<!-- 2) Mostra / nascondi testo. Un bottone mostra o nasconde un paragrafo-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <button onclick = "mostra()"> mostra </button> <button onclick = "nascondi()"> nascondi</button>
+   <p id = "testo">questo è il testo da nascondere o mostrare</p>
+
+   <script>
+       function mostra() {
+           const paragrafo = document.querySelector("p");
+           paragrafo.style.display = "block";
+
+       }
+       function nascondi() {
+           const paragrafo = document.querySelector("p");
+           paragrafo.style.display = "none";
+       }
+   </script>
+   
+</body>
+</html>

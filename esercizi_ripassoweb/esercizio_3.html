@@ -1,0 +1,24 @@
+<!-- 3) Contatore. Un bottone aumenta un numero di 1 a ogni click. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick ="contatore()">aumenta numero</button>
+    <p>0</p>
+
+    <script>
+        function contatore() {
+            const numero = document.querySelector("p");
+            let valore = parseInt(numero.innerText);
+            valore += 1
+            numero.innerText = valore
+        }
+    </script>
+    
+</body>
+</html>
